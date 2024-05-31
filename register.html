@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SpeakStride</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            body {
+                position: relative;
+                margin: 0;
+                background-color: #e6e6e6;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <script src="script.js" defer></script>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white; box-shadow: 0px 0px 4px 0px #c9c5c5">
+            <div class="container">
+                <a class="navbar-brand fs-4" style="color: black; font-weight: bold" href="index.html">
+                    <img src="Logo/Speak_1-removebg-preview.png" alt="logo" style="width: 200px" />
+                </a>
+
+                <button
+                    class="navbar-toggler shadow-none border-1"
+                    type="button"
+                    style="border: 2px solid #c9c9c9; background-color: white; color: black"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!--sidebar-->
+                <div
+                    class="sidebar offcanvas offcanvas-start text-bg-light"
+                    tabindex="-1"
+                    id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel"
+                >
+                    <!--sidebar header--->
+                    <div class="offcanvas-header text-white border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: black">SpeakStride</h5>
+                        <button type="button" class="btn-close btn-close-black shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+                        <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link active" aria-current="page" style="color: black" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="courses.html">Courses</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="about-us.html">About us</a>
+                            </li>
+
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="register.html">Register/Login</a>
+                            </li>
+                        </ul>
+                        <!--Login/Sign up-->
+                        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                            <button
+                                id="cartButton"
+                                style="width: 50px; border: 2px solid black; border-radius: 10px; background-color: white; transition: all 0.5s"
+                                class="loginButton"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br /><br /><br /><br /><br />
+        <section class="forms-section">
+            <h1 class="section-title">Sign up/ login</h1>
+            <div class="forms">
+                <div class="form-wrapper is-active">
+                    <button type="button" class="switcher switcher-login">
+                        Login
+                        <span class="underline"></span>
+                    </button>
+                    <form class="form form-login">
+                        <fieldset>
+                            <legend>Please, enter your email and password for login.</legend>
+                            <div class="input-block">
+                                <label for="login-email">E-mail</label>
+                                <input id="login-email" type="email" required />
+                            </div>
+                            <div class="input-block">
+                                <label for="login-password">Password</label>
+                                <input id="login-password" type="password" required />
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn-login" id="loginButton">Login</button>
+                    </form>
+                </div>
+                <div class="form-wrapper">
+                    <button type="button" class="switcher switcher-signup">
+                        Sign Up
+                        <span class="underline"></span>
+                    </button>
+                    <form class="form form-signup">
+                        <fieldset>
+                            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                            <div class="input-block">
+                                <label for="signup-email">E-mail</label>
+                                <input id="signup-email" type="email" required />
+                            </div>
+                            <div class="input-block">
+                                <label for="signup-password">Password</label>
+                                <input id="signup-password" type="password" required />
+                            </div>
+                            <div class="input-block">
+                                <label for="signup-password-confirm">Confirm password</label>
+                                <input id="signup-password-confirm" type="password" required />
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn-signup" id="signUpButton">Continue</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <br /><br /><br />
+        <section class="footer" id="6">
+            <div class="container">
+                <div class="row footer-cont">
+                    <div class="col-12 col-md">
+                        <h3><a href="index.html" style="font-size: 20px" class="foot" id="7">Home</a></h3>
+                        <h3><a href="courses.html" style="font-size: 20px" class="foot" id="7">Courses</a></h3>
+                        <h3><a href="about-us.html" style="font-size: 20px" class="foot" id="7">About Us</a></h3>
+                        <h3><a href="contact.html" style="font-size: 20px" class="foot" id="7">Contact</a></h3>
+                        <p>
+                            Designed and built by<br />
+                            Mohamed Mishaal Khan
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-md">
+                        <h4>Connect With Us</h4>
+                        <ul class="socil list-unstyled">
+                            <li><a href="https://www.facebook.com" class="fab fa-facebook" aria-hidden="true" title="Facebook" alt="Facebook"></a></li>
+                            <li><a href="https://www.X.com" class="fab fa-twitter" aria-hidden="true" title="twitter" alt="twitter"></a></li>
+                            <li>
+                                <a href="https://www.instagram.com" class="fab fa-instagram" aria-hidden="true" title="instagram" alt="instagram"></a>
+                            </li>
+                            <li>
+                                <a href="https://www.gmail.com" class="fas fa-envelope" aria-hidden="true" title="Gmail" alt="Gmail"></a>
+                            </li>
+
+                            <h4 style="text-align: justify; font-weight: bold; font-size: 1em">2024 All rights reserved</h4>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md" style="position: relative">
+                        <h4>Subscribe to our newsletter!</h4>
+                        <form action="#" class="subscribe">
+                            <label for="subscribe-email" class="visually-hidden">Email Address</label>
+                            <input type="email" placeholder="Enter your email" id="subscribe-email" required style="height: 35px" />
+                            <button class="btn" style="background-color: #25b3e1; height: 35px; color: white" id="subscribe-button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row text-center"></div>
+            </div>
+        </section>
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="cartItems" class="list-group">
+                            <!-- Cart items will be dynamically added here -->
+                        </ul>
+                        <div class="mt-3">
+                            <h5>Total: $<span id="cartTotal">0</span></h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="checkoutButton">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function validateForm() {
+                const name = document.getElementById("inlineFormInput")
+                const email = document.getElementById("email")
+                const phone = document.getElementById("website")
+                const comment = document.getElementById("comment")
+
+                const nameRegex = /^[A-Za-z\s]+$/
+                const phoneRegex = /^\d{10}$/
+
+                if (!nameRegex.test(name.value)) {
+                    alert("Name should only contain letters.")
+                    name.focus()
+                    return false
+                }
+
+                if (!email.checkValidity()) {
+                    alert("Please enter a valid email.")
+                    email.focus()
+                    return false
+                }
+
+                if (!phoneRegex.test(phone.value)) {
+                    alert("Phone number should be 10 digits.")
+                    phone.focus()
+                    return false
+                }
+
+                if (comment.value.trim() === "") {
+                    alert("Comment cannot be empty.")
+                    comment.focus()
+                    return false
+                }
+
+                alert("Request sent")
+                return true
+            }
+            const signUpButton = document.getElementById("signUpButton")
+            signUpButton.addEventListener("click", (e) => {
+                e.preventDefault()
+
+                    const email = document.getElementById("signup-email").value
+                const password = document.getElementById("signup-password").value
+                const confirmPassword = document.getElementById("signup-password-confirm").value
+
+                if (email === "" || !email.includes("@") || !email.includes(".")) {
+                    alert("Please enter a valid email.")
+                    email.focus()
+                    return false
+                }
+
+                if (password === "" || password.length < 8) {
+                    alert("Password should be at least 8 characters.")
+                    password.focus()
+                    return false
+                }
+
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match.")
+                    confirmPassword.focus()
+                    return false
+                }
+
+                alert("Signed up successfully")
+                window.location.href = "index.html"
+
+                // window.location.href = "signup.html";
+            })
+            const loginButton = document.getElementById("loginButton")
+            loginButton.addEventListener("click", (e) => {
+                e.preventDefault()
+
+                const email = document.getElementById("login-email").value
+
+                if (email === "" || !email.includes("@") || !email.includes(".")) {
+                    alert("Please enter a valid email.")
+                    email.focus()
+                    return false
+                }
+
+                const password = document.getElementById("login-password").value
+                alert("Logged in successfully")
+
+                window.location.href = "index.html"
+
+                // if (email === "admin" && password === "admin") {
+                //
+                // } else {
+                //     alert("Invalid credentials");
+                // }
+            })
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakStride</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            background-color: #e6e6e6;
+            height: 100vh;
+        }
+    </style>
+</head>
+<script src="script.js" defer></script>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white; box-shadow: 0px 0px 4px 0px #c9c5c5">
+        <div class="container">
+            <a class="navbar-brand fs-4" style="color: black; font-weight: bold" href="index.html">
+                <img src="Logo/Speak_1-removebg-preview.png" alt="logo" style="width: 200px" />
+            </a>
+
+            <button class="navbar-toggler shadow-none border-1" type="button" style="border: 2px solid #c9c9c9; background-color: white; color: black" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="sidebar offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header text-white border-bottom">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: black">SpeakStride</h5>
+                    <button type="button" class="btn-close btn-close-black shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+                    <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page" style="color: black" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" style="color: black" href="courses.html">Courses</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" style="color: black" href="about-us.html">About us</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" style="color: black" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" style="color: black" href="register.html">Register/Login</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                        <button id="cartButton" style="width: 50px; border: 2px solid black; border-radius: 10px; background-color: white; transition: all 0.5s" class="loginButton">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center mt-5">Courses</h1>
+                    <br>
+                    <input type="text" id="searchBar" class="form-control" placeholder="Search for a course..." onkeyup="filterCourses()">
+                    <div class="form-group mt-3">
+                        <select id="sortPrice" class="form-select" onchange="sortCoursesByPrice()">
+                            <option value="default">Sort by price</option>
+                            <option value="low-to-high">Price: Low to High</option>
+                            <option value="high-to-low">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="coursesContainer">
+                <div class="col-md-4 courses" data-price="100">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png" class="card-img-top" alt="UK Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn English (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Improve your English fluency and confidence in just 8 weeks with our expert-led program.</p>
+                            <p class="card-text"><strong>Price: $100</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn English (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png" data-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 courses" data-price="120">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/spain-flag-png-large.png" class="card-img-top" alt="Spain Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn Spanish (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Master conversational Spanish and explore the vibrant culture in our intensive 8-week course.</p>
+                            <p class="card-text"><strong>Price: $120</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn Spanish (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/spain-flag-png-large.png" data-price="120">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 courses" data-price="110">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/france-flag-png-large.png" class="card-img-top" alt="France Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn French (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Enhance your French language skills and discover the beauty of French culture in 8 weeks.</p>
+                            <p class="card-text"><strong>Price: $110</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn French (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/france-flag-png-large.png" data-price="110">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 courses" data-price="130">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png" class="card-img-top" alt="Germany Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn German (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Achieve proficiency in German and immerse yourself in its rich traditions with our 8-week program.</p>
+                            <p class="card-text"><strong>Price: $130</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn German (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png" data-price="130">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 courses" data-price="140">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/saudi-arabia-flag-png-large.png" class="card-img-top" alt="Saudi Arabia Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn Arabic (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Develop your Arabic language abilities and understand its cultural nuances in our 8-week course.</p>
+                            <p class="card-text"><strong>Price: $140</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn Arabic (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/saudi-arabia-flag-png-large.png" data-price="140">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 courses" data-price="150">
+                    <div class="card mt-5">
+                        <img src="https://www.countryflags.com/wp-content/uploads/china-flag-png-large.png" class="card-img-top" alt="China Flag"/>
+                        <div class="card-body">
+                            <h5 class="card-title"style="font-weight: bold">Learn Mandarin (8-week program)</h5>
+                            <p class="card-text"style= "font-weight: bold">Gain fluency in Mandarin and appreciate the depth of Chinese culture through our 8-week program.</p>
+                            <p class="card-text"><strong>Price: $150</strong></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Learn Mandarin (8-week program)" data-image="https://www.countryflags.com/wp-content/uploads/china-flag-png-large.png" data-price="150">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <br><br><br><br>
+
+    <section class="footer" id="6">
+        <div class="container">
+            <div class="row footer-cont">
+                <div class="col-12 col-md">
+                    <h3><a href="index.html"style="font-size: 20px" class="foot" id="7">Home</a></h3>
+                    <h3><a href="courses.html"style="font-size: 20px" class="foot" id="7">Courses</a></h3>
+                    <h3><a href="about-us.html"style="font-size: 20px" class="foot" id="7">About Us</a></h3>
+                    <h3><a href="contact.html"style="font-size: 20px" class="foot" id="7">Contact</a></h3>
+                    <p>Designed and built by.<br>
+                        Mohamed Mishaal Khan
+                        </p>
+                </div>
+
+                <div class="col-12 col-md">
+                    <h4>Connect With Us</h4>
+                    <ul class="socil list-unstyled">
+                        <li><a href="https://www.facebook.com" class="fab fa-facebook" aria-hidden="true" title="Facebook" alt="Facebook"></a></li>
+                        <li><a href="https://www.X.com" class="fab fa-twitter" aria-hidden="true" title="twitter" alt="twitter"></a></li>
+                        <li>
+                            <a href="https://www.instagram.com" class="fab fa-instagram" aria-hidden="true" title="instagram" alt="instagram"></a>
+                        </li>
+                        <li>
+                            <a href="https://www.gmail.com" class="fas fa-envelope" aria-hidden="true" title="Gmail" alt="Gmail"></a>
+                        </li>
+
+                        <h4 style="text-align: justify; font-weight: bold; font-size: 1em">2024 All rights reserved</h4>
+                    </ul>
+                </div>
+                <div class="col-12 col-md" style="position: relative">
+                    <h4>Subscribe to our newsletter!</h4>
+                    <form action="#" class="subscribe">
+                        <label for="subscribe-email" class="visually-hidden">Email Address</label>
+                        <input type="email" placeholder="Enter your email" id="subscribe-email" required style="height: 35px" />
+                        <button class="btn" style="background-color: #25b3e1; height: 35px; color: white" id="subscribe-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row text-center"></div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItems" class="list-group">
+                        <!-- Cart items will be dynamically added here -->
+                    </ul>
+                    <div class="mt-3">
+                        <h5>Total: $<span id="cartTotal">0</span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="checkoutButton">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

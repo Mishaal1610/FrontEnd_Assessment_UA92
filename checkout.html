@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkout - SpeakStride</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <style>
+            body {
+                position: relative;
+                margin: 0;
+                background-color: #e6e6e6;
+                height: 100vh;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white; box-shadow: 0px 0px 4px 0px #c9c5c5">
+            <div class="container">
+                <a class="navbar-brand fs-4" style="color: black; font-weight: bold" href="index.html">
+                    <img src="Logo/Speak_1-removebg-preview.png" alt="logo" style="width: 200px" />
+                </a>
+
+                <button
+                    class="navbar-toggler shadow-none border-1"
+                    type="button"
+                    style="border: 2px solid #c9c9c9; background-color: white; color: black"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!--sidebar-->
+                <div
+                    class="sidebar offcanvas offcanvas-start text-bg-light"
+                    tabindex="-1"
+                    id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel"
+                >
+                    <!--sidebar header--->
+                    <div class="offcanvas-header text-white border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="color: black">SpeakStride</h5>
+                        <button type="button" class="btn-close btn-close-black shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+                        <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link active" aria-current="page" style="color: black" href="index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="courses.html">Courses</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="about-us.html">About us</a>
+                            </li>
+
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" style="color: black" href="register.html">Register/Login</a>
+                            </li>
+                        </ul>
+                        <!--Login/Sign up-->
+                        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                            <button
+                                id="cartButton"
+                                style="width: 50px; border: 2px solid black; border-radius: 10px; background-color: white; transition: all 0.5s"
+                                class="loginButton"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center mt-5">Checkout</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <h5 class="card-title">Your Cart Items</h5>
+                                <ul id="cartItems1" class="list-group">
+                                    <!-- Cart items will be dynamically added here -->
+                                </ul>
+                                <div class="mt-3">
+                                    <h5>Total: $<span id="cartTotal">0</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-primary" id="checkoutButton1">Proceed to Payment</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
+        <section class="footer" id="6">
+            <div class="container">
+                <div class="row footer-cont">
+                    <div class="col-12 col-md">
+                        <h3><a href="index.html" style="font-size: 20px" class="foot" id="7">Home</a></h3>
+                        <h3><a href="courses.html" style="font-size: 20px" class="foot" id="7">Courses</a></h3>
+                        <h3><a href="about-us.html" style="font-size: 20px" class="foot" id="7">About Us</a></h3>
+                        <h3><a href="contact.html" style="font-size: 20px" class="foot" id="7">Contact</a></h3>
+                        <p>Subscribe to receive all our news.</p>
+                    </div>
+
+                    <div class="col-12 col-md">
+                        <h4>Connect With Us</h4>
+                        <ul class="socil list-unstyled">
+                            <li><a href="https://www.facebook.com" class="fab fa-facebook" aria-hidden="true" title="Facebook" alt="Facebook"></a></li>
+                            <li><a href="https://www.X.com" class="fab fa-twitter" aria-hidden="true" title="twitter" alt="twitter"></a></li>
+                            <li>
+                                <a href="https://www.instagram.com" class="fab fa-instagram" aria-hidden="true" title="instagram" alt="instagram"></a>
+                            </li>
+                            <li>
+                                <a href="https://www.gmail.com" class="fas fa-envelope" aria-hidden="true" title="Gmail" alt="Gmail"></a>
+                            </li>
+
+                            <h4 style="text-align: justify; font-weight: bold; font-size: 1em">2024 All rights reserved</h4>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md" style="position: relative">
+                        <h4>Subscribe to our newsletter!</h4>
+                        <form action="#" class="subscribe">
+                            <label for="subscribe-email" class="visually-hidden">Email Address</label>
+                            <input type="email" placeholder="Enter your email" id="subscribe-email" required style="height: 35px" />
+                            <button class="btn" style="background-color: #25b3e1; height: 35px; color: white" id="subscribe-button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row text-center"></div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="checkoutModalLabel" style="font-weight: bold">Payment Gateway</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="checkoutForm" novalidate>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required />
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required />
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="phone" required pattern="\d{10}" maxlength="10" />
+                                <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" required />
+                                <div class="invalid-feedback">Please enter your city.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" required />
+                                <div class="invalid-feedback">Please enter your address.</div>
+                            </div>
+                            <!-- Payment method selection -->
+                            <div class="mb-3">
+                                <label for="paymentMethod" class="form-label">Payment Method</label>
+                                <select class="form-select" id="paymentMethod" required>
+                                    <option value="" disabled>Select a payment method</option>
+                                    <option value="creditCard" selected>Credit Card</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="bankTransfer">Bank Transfer</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a payment method.</div>
+                            </div>
+                        </form>
+                        <!-- Credit Card details -->
+                        <form id="checkoutForm1" novalidate>
+                            <div id="creditCardDetails" class="payment-details">
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Card Number</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="cardNumber"
+                                        required
+                                        pattern="\d{16}"
+                                        maxlength="16"
+                                        inputmode="numeric"
+                                    />
+                                    <div class="invalid-feedback">Please enter a valid 16-digit card number.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="expirationDate" class="form-label">Expiration Date</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="expirationDate"
+                                        required
+                                        pattern="\d{2}/\d{2}"
+                                        placeholder="MM/YY"
+                                        maxlength="5"
+                                    />
+                                    <div class="invalid-feedback">Please enter a valid expiration date (MM/YY).</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cvv" class="form-label">CVV</label>
+                                    <input type="password" class="form-control" id="cvv" required pattern="\d{3}" maxlength="3" />
+                                    <div class="invalid-feedback">Please enter a valid 3-digit CVV.</div>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="checkoutForm2" novalidate>
+                            <!-- PayPal details -->
+                            <div id="paypalDetails" class="payment-details">
+                                <div class="mb-3">
+                                    <label for="paypalEmail" class="form-label">PayPal Email</label>
+                                    <input type="email" class="form-control" id="paypalEmail" required />
+                                    <div class="invalid-feedback">Please enter a valid PayPal email address.</div>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="checkoutForm3" novalidate>
+                            <!-- Bank Transfer details -->
+                            <div id="bankTransferDetails" class="payment-details">
+                                <div class="mb-3">
+                                    <label for="accountNumber" class="form-label">Account Number</label>
+                                    <input type="text" class="form-control" id="accountNumber" required pattern="\d{10,12}" maxlength="12" />
+                                    <div class="invalid-feedback">Please enter a valid account number.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="bankName" class="form-label">Bank Name</label>
+                                    <input type="text" class="form-control" id="bankName" required />
+                                    <div class="invalid-feedback">Please enter your bank name.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="routingNumber" class="form-label">Routing Number</label>
+                                    <input type="text" class="form-control" id="routingNumber" required pattern="\d{9}" maxlength="9" />
+                                    <div class="invalid-feedback">Please enter a valid routing number.</div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <button type="submit" class="btn btn-primary" id="submit-checkout">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="cartItems" class="list-group">
+                            <!-- Cart items will be dynamically added here -->
+                        </ul>
+                        <div class="mt-3">
+                            <h5>Total: $<span id="cartTotal">0</span></h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="checkoutButton">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cartItemsList = document.getElementById("cartItems1")
+                const cartTotal = document.getElementById("cartTotal")
+                const checkoutButton1 = document.getElementById("checkoutButton1")
+                const checkoutModal = new bootstrap.Modal(document.getElementById("checkoutModal"))
+                const checkoutForm = document.getElementById("checkoutForm")
+                const paymentMethodSelect = document.getElementById("paymentMethod")
+                const creditCardDetails = document.getElementById("creditCardDetails")
+                const paypalDetails = document.getElementById("paypalDetails")
+                const bankTransferDetails = document.getElementById("bankTransferDetails")
+                showCart()
+
+                paymentMethodSelect.addEventListener("change", function () {
+                    const selectedMethod = paymentMethodSelect.value
+                    creditCardDetails.style.display = selectedMethod === "creditCard" ? "block" : "none"
+                    paypalDetails.style.display = selectedMethod === "paypal" ? "block" : "none"
+                    bankTransferDetails.style.display = selectedMethod === "bankTransfer" ? "block" : "none"
+                })
+
+                function showCart() {
+                    const cart = JSON.parse(localStorage.getItem("cart")) || []
+                    cartItemsList.innerHTML = ""
+                    let total = 0
+                    cart.forEach((item, index) => {
+                        total += item.price
+                        const listItem = document.createElement("li")
+                        listItem.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center")
+                        listItem.innerHTML = `
+                            <div>
+                                <img src="${item.image}" alt="${
+                            item.title
+                        }" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                                ${item.title} - $${item.price.toFixed(2)}
+                            </div>
+                            <button class="btn btn-danger btn-sm remove-from-cart" data-index="${index}">Remove</button>
+                        `
+                        cartItemsList.appendChild(listItem)
+                    })
+                    cartTotal.innerText = total.toFixed(2)
+
+                    document.querySelectorAll(".remove-from-cart").forEach((button) => {
+                        button.addEventListener("click", function () {
+                            const index = this.getAttribute("data-index")
+                            removeFromCart(index)
+                        })
+                    })
+                }
+
+                function removeFromCart(index) {
+                    let cart = JSON.parse(localStorage.getItem("cart")) || []
+                    cart.splice(index, 1)
+                    localStorage.setItem("cart", JSON.stringify(cart))
+                    showCart()
+                }
+
+                checkoutButton1.addEventListener("click", function () {
+                    creditCardDetails.style.display = "block"
+                    paypalDetails.style.display = "none"
+                    bankTransferDetails.style.display = "none"
+                    checkoutModal.show()
+                })
+                const submitCheckout = document.getElementById("submit-checkout")
+                submitCheckout.addEventListener("click", function () {
+                    const checkoutForm = document.getElementById("checkoutForm")
+                    const checkoutForm1 = document.getElementById("checkoutForm1")
+                    const checkoutForm2 = document.getElementById("checkoutForm2")
+                    const checkoutForm3 = document.getElementById("checkoutForm3")
+                    const selectedMethod = paymentMethodSelect.value
+
+                    if (
+                        (checkoutForm.checkValidity() && selectedMethod === "creditCard" && checkoutForm1.checkValidity()) ||
+                        (selectedMethod === "paypal" && checkoutForm2.checkValidity()) ||
+                        (selectedMethod === "bankTransfer" && checkoutForm3.checkValidity())
+                    ) {
+                        alert("Checkout completed successfully!")
+                        localStorage.removeItem("cart")
+                        showCart()
+                        checkoutModal.hide()
+                    } else {
+                        checkoutForm.classList.add("was-validated")
+                        checkoutForm1.classList.add("was-validated")
+                        checkoutForm2.classList.add("was-validated")
+                        checkoutForm3.classList.add("was-validated")
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
